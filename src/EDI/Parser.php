@@ -17,7 +17,7 @@ class Parser
     public function __construct($url = null)
     {
         $this->errors=array();
-        if ($url===null) {
+        if (is_null($url)) {
             return;
         }
         if (is_array($url)) {
@@ -94,9 +94,12 @@ class Parser
         $arr=preg_split("/(?<!\?):/", $str); //split on : if not escaped (negative lookbehind)
         if (count($arr)==1) {
             return preg_replace("/\?(?=\?)|\?(?=\+)|\?(?=:)|\?(?=')/", "", $str); //remove ? if not escaped
-        }     foreach ($arr as &$value) {
+        }
+
+        foreach ($arr as &$value) {
               $value=preg_replace("/\?(?=\?)|\?(?=\+)|\?(?=:)|\?(?=')/", "", $value);
         }
+        
         return $arr;
     }
 

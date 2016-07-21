@@ -328,9 +328,9 @@ class Interpreter
     {
         if ($pretty) {
             return json_encode($this->ediGroups, JSON_PRETTY_PRINT);
-        } else {
-            return json_encode($this->ediGroups);
         }
+
+        return json_encode($this->ediGroups);
     }
 
     /**
@@ -364,8 +364,8 @@ class Interpreter
     {
         if ($pretty) {
             return json_encode($this->serviceSeg, JSON_PRETTY_PRINT);
-        } else {
-            return json_encode($this->serviceSeg);
         }
+
+        return json_encode($this->serviceSeg);
     }
 }

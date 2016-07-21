@@ -220,14 +220,11 @@ class Analyser
                                     $r[] = '        length: ' . $d_sub_desc_attr['length'];
                                 }
 
-                                //check for skipped data
-                                unset($d_sub_desc_attr['id']);
-                                unset($d_sub_desc_attr['name']);
-                                unset($d_sub_desc_attr['desc']);
-                                unset($d_sub_desc_attr['type']);
-                                unset($d_sub_desc_attr['maxlength']);
-                                unset($d_sub_desc_attr['required']);
-                                unset($d_sub_desc_attr['length']);
+                                $remove_list = ['id', 'name', 'desc', 'type', 'maxlength', 'required', 'length'];
+                                foreach($remove_list as $removable){
+                                  unset($d_sub_desc_attr[$removable]);
+                                }
+
                                 if (!empty($d_sub_desc_attr)) {
                                     var_dump($d_sub_desc_attr);
                                 }

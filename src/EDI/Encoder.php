@@ -12,7 +12,7 @@ class Encoder
 
     public function __construct($array = null, $wrap = true)
     {
-        if ($array === null) {
+        if (is_null($array)) {
             return;
         }
         $this->output = $this->encode($array, $wrap);
@@ -60,8 +60,7 @@ class Encoder
 
     private function escapeValue($str)
     {
-        $str = preg_replace('/(\'|\\+|:|\\?)/', '?$1', $str, -1);
-        return $str;
+        return preg_replace('/(\'|\\+|:|\\?)/', '?$1', $str, -1);
     }
 
     public function get()

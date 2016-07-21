@@ -80,15 +80,15 @@ class Reader
      */
     public function preValidate(){
         $this->errors=[];
-        
+
         if(!is_array($this->parsedfile)){
             $this->errors[] = 'Incorect format parsed file';
-            return false;            
+            return false;
         }
-        
+
         $r = $this->readUNHmessageNumber();
-        if(!$r 
-                && isset($this->errors[0]) 
+        if(!$r
+                && isset($this->errors[0])
                 && $this->errors[0] == 'Segment "UNH" is ambiguous'){
             $this->errors=[];
             $this->errors[] = 'File has multiple messages';
